@@ -1,60 +1,63 @@
-import React, { useState } from 'react';
-import { useTheme } from '../../context/ThemeContext';
-import { sanitizeInput } from '../../utils/security';
-import Layout from '../../components/Layout/Layout';
-import styles from './Contact.module.css';
+import React, { useState } from "react";
+import { useTheme } from "../../context/ThemeContext";
+import { sanitizeInput } from "../../utils/security";
+import Layout from "../../components/Layout/Layout";
+import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
   const { currentTheme } = useTheme();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: sanitizeInput(value)
+      [name]: sanitizeInput(value),
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate form data
     if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill in all fields');
+      alert("Please fill in all fields");
       return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      alert('Please enter a valid email address');
+      alert("Please enter a valid email address");
       return;
     }
-    
+
     // Simulate form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setIsSubmitted(true);
-    
+
     // Reset form
     setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: "", email: "", message: "" });
       setIsSubmitted(false);
     }, 3000);
   };
 
   return (
-    <Layout showSidebar={currentTheme === 'theme2'}>
+    <Layout showSidebar={currentTheme === "theme2"}>
       <div className={`${styles.contact} ${styles[currentTheme]}`}>
         <header className={styles.header}>
           <h1 className={styles.title}>Get In Touch</h1>
           <p className={styles.subtitle}>
-            We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            We'd love to hear from you. Send us a message and we'll respond as
+            soon as possible.
           </p>
         </header>
 
@@ -64,15 +67,19 @@ const Contact: React.FC = () => {
             <div className={styles.infoGrid}>
               <div className={`${styles.infoCard} ${styles[currentTheme]}`}>
                 <h3>📧 Email</h3>
-                <p>hello@themeswitch.com</p>
+                <p>ankit.gupta.sde@gmail.com</p>
               </div>
               <div className={`${styles.infoCard} ${styles[currentTheme]}`}>
                 <h3>📱 Phone</h3>
-                <p>+1 (555) 123-4567</p>
+                <p>+91 9650960634</p>
               </div>
               <div className={`${styles.infoCard} ${styles[currentTheme]}`}>
                 <h3>📍 Address</h3>
-                <p>123 Design Street<br />Creative City, CC 12345</p>
+                <p>
+                  Sector 62, Noida, Uttar Pradesh
+                  <br />
+                  Pincode 201301, India
+                </p>
               </div>
             </div>
           </div>
@@ -85,7 +92,10 @@ const Contact: React.FC = () => {
                 <p>Thank you for your message. We'll get back to you soon!</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className={`${styles.form} ${styles[currentTheme]}`}>
+              <form
+                onSubmit={handleSubmit}
+                className={`${styles.form} ${styles[currentTheme]}`}
+              >
                 <div className={styles.formGroup}>
                   <label htmlFor="name">Name *</label>
                   <input
@@ -98,7 +108,7 @@ const Contact: React.FC = () => {
                     className={`${styles.input} ${styles[currentTheme]}`}
                   />
                 </div>
-                
+
                 <div className={styles.formGroup}>
                   <label htmlFor="email">Email *</label>
                   <input
@@ -111,7 +121,7 @@ const Contact: React.FC = () => {
                     className={`${styles.input} ${styles[currentTheme]}`}
                   />
                 </div>
-                
+
                 <div className={styles.formGroup}>
                   <label htmlFor="message">Message *</label>
                   <textarea
@@ -124,9 +134,9 @@ const Contact: React.FC = () => {
                     className={`${styles.textarea} ${styles[currentTheme]}`}
                   />
                 </div>
-                
-                <button 
-                  type="submit" 
+
+                <button
+                  type="submit"
                   className={`${styles.submitButton} ${styles[currentTheme]}`}
                 >
                   Send Message
