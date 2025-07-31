@@ -1,0 +1,83 @@
+.layout {
+    margin-top: 80px; /* Account for fixed header */
+    min-height: calc(100vh - 80px);
+    transition: all var(--transition-speed) ease-in-out;
+  }
+  
+  .mainContent {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+  }
+  
+  .content {
+    flex: 1;
+    padding: var(--spacing-md);
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    height: fit-content;
+    margin-right: var(--spacing-lg);
+  }
+  
+  .sidebar h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+  }
+  
+  .sidebarList {
+    list-style: none;
+  }
+  
+  .sidebarList li {
+    padding: var(--spacing-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease-in-out;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .sidebarList li:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+  }
+  
+  /* Theme-specific adjustments */
+  .layout.theme1 .content {
+    padding: var(--spacing-xl);
+  }
+  
+  .layout.theme2 .content {
+    padding: var(--spacing-lg);
+  }
+  
+  .layout.theme3 .content {
+    padding: var(--spacing-md);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .mainContent {
+      flex-direction: column;
+      padding: var(--spacing-md);
+    }
+    
+    .sidebar {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .content {
+      padding: var(--spacing-sm);
+    }
+  }
+  

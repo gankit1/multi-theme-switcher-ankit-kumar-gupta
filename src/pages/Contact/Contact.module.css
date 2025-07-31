@@ -1,0 +1,198 @@
+.contact {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+  
+  .contactInfo h2,
+  .formSection h2 {
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .infoGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .infoCard {
+    background-color: var(--surface-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease-in-out;
+  }
+  
+  .infoCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .infoCard h3 {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .infoCard p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formGroup label {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .input,
+  .textarea {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-speed) ease-in-out;
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  .textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .submitButton {
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .submitButton:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .successMessage {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+  
+  .successMessage h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Theme-specific styles */
+  .contact.theme2 .header {
+    background: linear-gradient(135deg, var(--surface-color), var(--background-color));
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius);
+  }
+  
+  .contact.theme2 .title {
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .contact.theme2 .infoCard {
+    background: linear-gradient(135deg, var(--surface-color), var(--background-color));
+  }
+  
+  .contact.theme3 .header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: var(--spacing-2xl);
+    border-radius: 25px;
+  }
+  
+  .contact.theme3 .title,
+  .contact.theme3 .subtitle {
+    color: white;
+  }
+  
+  .contact.theme3 .infoCard {
+    background: linear-gradient(135deg, white, var(--surface-color));
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+  }
+  
+  .contact.theme3 .input,
+  .contact.theme3 .textarea {
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+  }
+  
+  .contact.theme3 .submitButton {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 25px;
+    font-weight: 400;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+  
